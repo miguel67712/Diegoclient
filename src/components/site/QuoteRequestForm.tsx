@@ -78,7 +78,7 @@ function StepperRow({
   min?: number;
 }) {
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-border bg-background p-3">
+    <div className="grid grid-cols-1 items-center gap-3 rounded-xl border border-border bg-background p-3 sm:grid-cols-[minmax(0,1fr)_auto]">
       <div className="flex min-w-0 items-center gap-3">
         {Icon && (
           <span className="brand-surface inline-flex size-9 shrink-0 items-center justify-center rounded-lg text-brand-foreground">
@@ -86,11 +86,11 @@ function StepperRow({
           </span>
         )}
         <div className="min-w-0">
-          <p className="truncate text-sm font-bold sm:text-base">{label}</p>
+          <p className="text-sm font-bold text-balance sm:text-base">{label}</p>
           {sub && <p className="text-xs text-muted-foreground">{sub}</p>}
         </div>
       </div>
-      <div className="flex shrink-0 items-center gap-2">
+      <div className="flex shrink-0 items-center justify-end gap-2">
         <button
           type="button"
           aria-label={`Retirer — ${label}`}
@@ -335,32 +335,38 @@ export function QuoteRequestForm() {
           </p>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-[1.4fr_1fr]">
-          <div className="card-elevated relative min-h-[220px] overflow-hidden sm:min-h-full">
+        <div className="mt-8 grid gap-4 sm:h-80 sm:grid-cols-[1.4fr_1fr]">
+          <div className="card-elevated relative aspect-[16/9] overflow-hidden sm:aspect-auto sm:h-full">
             <img
               src={hostessesPhoto}
               alt="Équipe DIEGO Distribution en tenue d'hôtesses lors d'une prestation"
+              width={1600}
+              height={1200}
               className="absolute inset-0 size-full object-cover"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-            <p className="absolute inset-x-0 bottom-0 p-4 text-sm font-bold text-white">
+            <p className="absolute inset-x-0 bottom-0 p-3 text-sm font-bold text-white sm:p-4">
               Notre équipe sur le terrain, prête pour votre événement.
             </p>
           </div>
-          <div className="grid grid-rows-2 gap-4">
-            <div className="card-elevated relative min-h-[100px] overflow-hidden">
+          <div className="grid grid-cols-2 gap-4 sm:h-full sm:grid-cols-1 sm:grid-rows-2">
+            <div className="card-elevated relative aspect-square overflow-hidden sm:aspect-auto sm:h-full">
               <img
                 src={cart33Export}
                 alt="Stand de bière pression 33 Export installé par DIEGO Distribution"
+                width={800}
+                height={1184}
                 className="absolute inset-0 size-full object-cover"
                 loading="lazy"
               />
             </div>
-            <div className="card-elevated relative min-h-[100px] overflow-hidden">
+            <div className="card-elevated relative aspect-square overflow-hidden sm:aspect-auto sm:h-full">
               <img
                 src={cartCastel}
                 alt="Stand de bière pression Castel Beer installé par DIEGO Distribution"
+                width={800}
+                height={1422}
                 className="absolute inset-0 size-full object-cover"
                 loading="lazy"
               />
