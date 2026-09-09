@@ -321,7 +321,7 @@ export function QuoteRequestForm() {
   };
 
   return (
-    <section id="commande" className="relative overflow-hidden border-y border-border">
+    <section id="commande" className="relative isolate overflow-hidden border-y border-border">
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <img src={cart33Export} alt="" className="size-full object-cover" loading="lazy" />
         <div className="absolute inset-0 bg-secondary/93" />
