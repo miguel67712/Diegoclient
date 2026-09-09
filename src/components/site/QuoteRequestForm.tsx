@@ -323,8 +323,13 @@ export function QuoteRequestForm() {
   return (
     <section id="commande" className="relative isolate overflow-hidden border-y border-border">
       <div className="absolute inset-0 -z-10" aria-hidden="true">
-        <img src={cart33Export} alt="" className="size-full object-cover" loading="lazy" />
-        <div className="absolute inset-0 bg-secondary/93" />
+        <img
+          src={cart33Export}
+          alt=""
+          className="size-full object-cover object-center"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-secondary/75" />
       </div>
 
       <div className="mx-auto max-w-4xl px-4 py-16 sm:py-24">
@@ -347,7 +352,7 @@ export function QuoteRequestForm() {
               alt="Équipe DIEGO Distribution en tenue d'hôtesses lors d'une prestation"
               width={1600}
               height={1200}
-              className="absolute inset-0 size-full object-cover"
+              className="absolute inset-0 size-full object-cover object-center"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
@@ -361,7 +366,7 @@ export function QuoteRequestForm() {
               alt="Stand de bière pression Castel Beer installé par DIEGO Distribution"
               width={800}
               height={1422}
-              className="absolute inset-0 size-full object-cover"
+              className="absolute inset-0 size-full object-cover object-center"
               loading="lazy"
             />
           </div>
