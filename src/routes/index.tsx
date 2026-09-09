@@ -4,9 +4,9 @@ import { QuoteRequestForm } from "@/components/site/QuoteRequestForm";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
-const title = "DIEGO Distribution — Demande de devis (Secrétariat)";
+const title = "DIEGO Distribution — Passer une commande (Secrétariat)";
 const description =
-  "Décrivez votre besoin en fûts de bière pression, hôtesses, matériel et gobelets, et recevez un devis personnalisé directement sur WhatsApp auprès du secrétariat DIEGO Distribution.";
+  "Composez votre commande en fûts de bière pression, hôtesses, matériel et gobelets, et recevez une confirmation personnalisée directement sur WhatsApp auprès du secrétariat DIEGO Distribution.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

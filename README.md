@@ -1,4 +1,4 @@
-# DIEGO Distribution — Devis Secrétariat
+# DIEGO Distribution — Commande Secrétariat
 
 Standalone quote-request mini-site for DIEGO Distribution. Visitors describe
 what they need (fûts, hôtesse(s), machine(s)/tireuse(s), gobelets

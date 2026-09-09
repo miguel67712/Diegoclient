@@ -152,7 +152,7 @@ export function QuoteRequestForm() {
     const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
     let code = "";
     for (let i = 0; i < 6; i += 1) code += chars[Math.floor(Math.random() * chars.length)];
-    return `DGO-DEVIS-${code}`;
+    return `DGO-CMD-${code}`;
   };
 
   const set = (key: keyof typeof values, value: string) => {
@@ -195,7 +195,7 @@ export function QuoteRequestForm() {
   const buildMessage = () => {
     const objet = values.occasion === "Autre" ? values.occasionOther.trim() : values.occasion;
     const lines: string[] = [
-      "📋 *DEMANDE DE DEVIS — SECRÉTARIAT*",
+      "🧾 *COMMANDE — SECRÉTARIAT*",
       `_${ENTERPRISE.name}_`,
       "",
       "*👤 CLIENT*",
@@ -233,7 +233,7 @@ export function QuoteRequestForm() {
     if (values.notes.trim()) {
       lines.push("", "*📝 Informations complémentaires :*", values.notes.trim());
     }
-    lines.push("", "Fiche récapitulative en image ci-jointe — merci de me communiquer un devis.");
+    lines.push("", "Fiche récapitulative en image ci-jointe — merci de confirmer ma commande.");
     return lines.join("\n");
   };
 
@@ -285,7 +285,7 @@ export function QuoteRequestForm() {
       });
 
       const blob = await (await fetch(dataUrl)).blob();
-      const file = new File([blob], "demande-devis-diego-distribution.png", {
+      const file = new File([blob], "commande-diego-distribution.png", {
         type: "image/png",
       });
 
@@ -298,13 +298,13 @@ export function QuoteRequestForm() {
         await navigator.share({
           files: [file],
           text: buildMessage(),
-          title: "Demande de devis — DIEGO Distribution",
+          title: "Commande — DIEGO Distribution",
         });
         setSent("shared");
       } else {
         const link = document.createElement("a");
         link.href = dataUrl;
-        link.download = "demande-devis-diego-distribution.png";
+        link.download = "commande-diego-distribution.png";
         link.click();
         window.open(waUrl, "_blank", "noopener,noreferrer");
         setSent("downloaded");
@@ -321,21 +321,26 @@ export function QuoteRequestForm() {
   };
 
   return (
-    <section id="devis" className="border-y border-border bg-secondary/40">
+    <section id="commande" className="relative overflow-hidden border-y border-border">
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <img src={cart33Export} alt="" className="size-full object-cover" loading="lazy" />
+        <div className="absolute inset-0 bg-secondary/93" />
+      </div>
+
       <div className="mx-auto max-w-4xl px-4 py-16 sm:py-24">
         <div className="max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand">Devis rapide</p>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand">Commande rapide</p>
           <h2 className="mt-3 text-3xl font-black sm:text-4xl">
-            Demandez un devis auprès du secrétariat
+            Passez votre commande auprès du secrétariat
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Pas encore de tarif en tête ? Décrivez ce qu'il vous faut et notre secrétariat vous
-            répond directement sur WhatsApp {ENTERPRISE.secretaryWhatsappDisplay} avec un devis
-            personnalisé.
+            Composez votre commande ci-dessous — fûts, hôtesses, matériel, gobelets — et notre
+            secrétariat vous recontacte directement sur WhatsApp{" "}
+            {ENTERPRISE.secretaryWhatsappDisplay} pour finaliser les détails.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:h-80 sm:grid-cols-[1.4fr_1fr]">
+        <div className="mt-8 grid gap-4 sm:h-72 sm:grid-cols-[1.6fr_1fr]">
           <div className="card-elevated relative aspect-[16/9] overflow-hidden sm:aspect-auto sm:h-full">
             <img
               src={hostessesPhoto}
@@ -350,27 +355,15 @@ export function QuoteRequestForm() {
               Notre équipe sur le terrain, prête pour votre événement.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:h-full sm:grid-cols-1 sm:grid-rows-2">
-            <div className="card-elevated relative aspect-square overflow-hidden sm:aspect-auto sm:h-full">
-              <img
-                src={cart33Export}
-                alt="Stand de bière pression 33 Export installé par DIEGO Distribution"
-                width={800}
-                height={1184}
-                className="absolute inset-0 size-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="card-elevated relative aspect-square overflow-hidden sm:aspect-auto sm:h-full">
-              <img
-                src={cartCastel}
-                alt="Stand de bière pression Castel Beer installé par DIEGO Distribution"
-                width={800}
-                height={1422}
-                className="absolute inset-0 size-full object-cover"
-                loading="lazy"
-              />
-            </div>
+          <div className="card-elevated relative aspect-[4/3] overflow-hidden sm:aspect-auto sm:h-full">
+            <img
+              src={cartCastel}
+              alt="Stand de bière pression Castel Beer installé par DIEGO Distribution"
+              width={800}
+              height={1422}
+              className="absolute inset-0 size-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
 
@@ -624,12 +617,12 @@ export function QuoteRequestForm() {
               ) : (
                 <>
                   <MessageCircle className="size-5" />
-                  Envoyer au secrétariat via WhatsApp
+                  Envoyer ma commande au secrétariat via WhatsApp
                 </>
               )}
             </Button>
             <p className="mt-3 text-center text-xs text-muted-foreground">
-              Votre demande est générée en image et envoyée directement au secrétariat (
+              Votre commande est générée en image et envoyée directement au secrétariat (
               {ENTERPRISE.secretaryWhatsappDisplay}).
             </p>
 
@@ -639,13 +632,13 @@ export function QuoteRequestForm() {
                   <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-success" />
                   <div className="min-w-0">
                     <p className="font-bold">
-                      Votre fiche de demande a été préparée pour WhatsApp.
+                      Votre fiche de commande a été préparée pour WhatsApp.
                     </p>
                     {sent === "shared" ? (
                       <p className="mt-1 text-muted-foreground">
                         Choisissez WhatsApp dans le partage puis le contact{" "}
                         {ENTERPRISE.secretaryWhatsappDisplay}, et appuyez sur{" "}
-                        <strong>Envoyer</strong> pour finaliser votre demande.
+                        <strong>Envoyer</strong> pour finaliser votre commande.
                       </p>
                     ) : (
                       <p className="mt-1 text-muted-foreground">

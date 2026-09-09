@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const NAV = [
   { href: "#top", label: "Accueil" },
-  { href: "#devis", label: "Devis" },
+  { href: "#commande", label: "Commander" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -38,9 +38,9 @@ export function Header() {
             </a>
           ))}
           <Button asChild className="ml-2 gap-2">
-            <a href="#devis">
+            <a href="#commande">
               <MessageCircle className="size-4" />
-              Demander un devis
+              Passer une commande
             </a>
           </Button>
         </nav>

@@ -117,7 +117,7 @@ export const QuoteReceipt = forwardRef<HTMLDivElement, { data: QuoteData | null 
                 </div>
                 <div style={{ textAlign: "right", color: "#475467" }}>
                   <div style={{ fontWeight: 800, color: red, fontSize: "16px" }}>
-                    DEMANDE DE DEVIS
+                    FICHE DE COMMANDE
                   </div>
                   <div>Date : {data.issuedAt}</div>
                   <div>Secrétariat : {ENTERPRISE.secretaryWhatsappDisplay}</div>

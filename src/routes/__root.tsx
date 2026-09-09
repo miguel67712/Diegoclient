@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "DIEGO Distribution — Demande de devis" },
+      { title: "DIEGO Distribution — Passer une commande" },
       {
         name: "description",
         content:
-          "Demandez un devis personnalisé pour vos fûts de bière pression, hôtesses et matériel, directement auprès du secrétariat DIEGO Distribution sur WhatsApp.",
+          "Passez votre commande de fûts de bière pression, hôtesses et matériel, directement auprès du secrétariat DIEGO Distribution sur WhatsApp.",
       },
       { name: "author", content: "DIEGO Distribution" },
       { property: "og:type", content: "website" },
